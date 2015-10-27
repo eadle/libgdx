@@ -108,7 +108,7 @@ public class GhostObjectTest extends BaseBulletTest {
     }
 
     private void recoverFromPenetration() {
-/*
+
         convexShape.getAabb(ghostObject.getWorldTransform(), minAabb, maxAabb);
         world.collisionWorld.getBroadphase().setAabb(ghostObject.getBroadphaseHandle(), minAabb,
                 maxAabb, world.collisionWorld.getDispatcher());
@@ -157,10 +157,9 @@ public class GhostObjectTest extends BaseBulletTest {
                 }
             }
         }
-*/
 
         ghostObject.getWorldTransform(capsule.transform);
-        capsule.transform.translate(0.f, 0.001f, 0.f);
+        capsule.transform.translate(correction);
         ghostObject.setWorldTransform(capsule.transform);
 
     }
