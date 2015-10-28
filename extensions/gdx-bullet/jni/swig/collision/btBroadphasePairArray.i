@@ -101,11 +101,11 @@ public:
 	}
 
 	jlong ptrAt(int n) {
-    jlong jresult = 0;
-    btBroadphasePair *result = 0;
+		jlong jresult = 0;
+		btBroadphasePair *result = 0;
 		result = &(*$self)[i];
-    *(btBroadphasePair **)&jresult = result;
-    return jresult;
+		*(btBroadphasePair **)&jresult = result;
+		return jresult;
 	}
 };
 
