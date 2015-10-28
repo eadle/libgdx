@@ -24,7 +24,13 @@
 	public int getCollisionObjectsValue(final int[] out, final btCollisionObject other) {
 		return getCollisionObjectsValue(out, out.length, (int)btCollisionObject.getCPtr(other));
 	}
+
+	public btBroadphasePair at(int n) {
+		return btBroadphasePair.internalTemp(CollisionJNI.btBroadphasePairArray_ptrAt(swigCPtr, this, n), false);
+	}
 %}
+
+%ignore at;
 
 %rename(btBroadphasePairArray) btAlignedObjectArray<btBroadphasePair>;
 class btAlignedObjectArray<btBroadphasePair> {
@@ -92,6 +98,14 @@ public:
 			}
 		}
 		return count;
+	}
+
+	jlong ptrAt(int n) {
+    jlong jresult = 0;
+    btBroadphasePair *result = 0;
+		result = &(*$self)[i];
+    *(btBroadphasePair **)&jresult = result;
+    return jresult;
 	}
 };
 
